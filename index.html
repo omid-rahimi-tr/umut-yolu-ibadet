@@ -199,6 +199,7 @@ kbd{border:1px solid var(--line);border-radius:6px;padding:1px 7px;color:var(--g
 .lead{width:fit-content;max-width:100%;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;border:1px solid rgba(242,196,107,.5);border-radius:999px;padding:6px 18px;margin-bottom:1.4vh;background:rgba(10,14,28,.6);color:var(--gold);font-weight:800;font-size:clamp(15px,1.35vw,21px);letter-spacing:.02em}
 .lead .fa{color:rgba(242,196,107,.85);font-weight:700}
 .center .lead,[data-center] .lead{margin-inline:auto}
+body.only-tr .dsep, body.only-fa .dsep{display:none}
 </style>
 </head>
 <body class="both chords">
@@ -480,7 +481,7 @@ function build(){
       else if(b.t==='lead'){ h+='<div class="lead blk'+st+'">'+TB+ed(p+'.tr',b.tr,'tr')+ed(p+'.fa',b.fa,'fa')+'</div>'; }
       else if(b.t==='note'){ h+='<div class="note blk'+st+'">'+TB+ed(p+'.tr',b.tr,'tr')+ed(p+'.fa',b.fa,'fa')+'</div>'; }
       else if(b.t==='sub'){ h+='<div class="blk'+st+'">'+TB+'<div class="sub tr" data-p="'+p+'.tr">'+esc(b.tr)+'</div><div class="sub fa" data-p="'+p+'.fa">'+esc(b.fa)+'</div></div>'; }
-      else if(b.t==='tag'){ h+='<span class="tag blk">'+TB+ed(p+'.tr',b.tr,'tr')+' · '+ed(p+'.fa',b.fa,'fa')+'</span>'; }
+      else if(b.t==='tag'){ h+='<span class="tag blk">'+TB+ed(p+'.tr',b.tr,'tr')+'<span class="dsep"> · </span>'+ed(p+'.fa',b.fa,'fa')+'</span>'; }
       else if(b.t==='churchbig'){ h+='<div class="sub blk" style="font-family:Cormorant Garamond,serif;font-weight:700;color:var(--gold);letter-spacing:.06em">'+TB+'<span class="tr">'+esc(ST.church)+'</span> <span class="fa">· '+esc(ST.churchFa)+'</span></div>'; }
       else if(b.t==='qr'){ h+='<div class="qr blk'+(b.big?' big':'')+'">'+TB+'<div class="qrimg">'+QRSVG+'</div><div class="qrt"><b>@agapetv.turkiye</b><span class="tr">Instagram’da takip edin</span><span class="fa">ما را در اینستاگرام دنبال کنید</span></div></div>'; }
       else if(b.t==='date'){ if(ST.date) h+='<div class="sub">'+esc(ST.date)+'</div>'; }
